@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> GTO Pinturas </title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ===================================================
+       VARIABLES Y ESTILOS BASE (GTO PINTURAS BRAND)
+    =================================================== */
+    :root {
+      --primary-color: #FBC501;  /* Amarillo GTO Pinturas */
+      --secondary-color: #111111;/* Negro */
+      --accent-color: #222222;   /* Gris Oscuro */
+      --text-light: #ffffff;
+      --text-dark: #2d2d2d;
+      --bg-light: #f8f9fa;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #e6b800;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 203, 5, 0.4);
+    }
+
+    .btn-dark {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+
+    .btn-dark:hover {
+      background-color: #333333;
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .section-padding {
+      padding: 70px 0;
+    }
+
+    /* ===================================================
+       HEADER Y NAVEGACIÓN
+    =================================================== */
+    .top-bar {
+      background-color: var(--secondary-color);
+      color: var(--text-light);
+      padding: 8px 0;
+      font-size: 0.85rem;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-info span {
+      margin-right: 20px;
+    }
+
+    .top-info i {
+      color: var(--primary-color);
+      margin-right: 5px;
+    }
+
+    .top-social a {
+      margin-left: 12px;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .top-social a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Navbar Principal */
+    .navbar {
+     background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    /* Estilo del Logo inspirado en GTO Pinturas */
+    .brand-logo {
+      background-color: var(--primary-color);
+      padding: 8px 20px;
+      border-radius: 40px;
+      border: 2px solid var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .brand-logo .gto {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--secondary-color);
+      font-style: italic;
+      letter-spacing: -1px;
+    }
+
+    .brand-logo .pinturas {
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--secondary-color);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-menu li {
+      margin-left: 25px;
+    }
+
+    .nav-menu a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    /* ===================================================
+       HERO BANNER / CARROUSEL
+    =================================================== */
+  .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 550px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(17, 17, 17, 0.6) 60%, rgba(0, 0, 0, 0.85) 100%), 
+                  url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5);
+    }
+
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary-color);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+	  
+	   .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: #ffffff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #20ba5a;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      color: #ffffff;
+    }
+
+    .whatsapp-float .whatsapp-tooltip {
+      position: absolute;
+      right: 70px;
+      background-color: #111111;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 1px solid rgba(251, 197, 1, 0.3);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* ===================================================
+       LÍNEAS DE PRODUCTOS (CATEGORÍAS)
+    =================================================== */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 320px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.1);
+    }
+	  
+	.category-badge-click {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+		}
+
+    .category-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      padding: 20px;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .category-overlay h3 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    /* ===================================================
+       PRODUCTOS DESTACADOS
+    =================================================== */
+    .products {
+      background-color: var(--bg-light);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #eee;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 4px 12px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .product-img-wrapper {
+      position: relative;
+      height: 220px;
+      background-color: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .product-img-wrapper img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* ===================================================
+       FOOTER
+    =================================================== */
+    footer {
+      background-color: #0d0d0d;
+      color: #aaa;
+      padding-top: 60px;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary-color);
+      margin-top: 5px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul a {
+      transition: var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+ /* Dedicated Large Catalog Sub-Window / Modal Overlay */
+    .catalog-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.92);
+      z-index: 2500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 20px;
+    }
+
+    .catalog-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .catalog-modal-container {
+      background: #181818;
+      border: 1px solid #333;
+      border-top: 4px solid var(--primary-color);
+      width: 100%;
+      max-width: 1100px;
+      max-height: 90vh;
+      border-radius: 20px;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-header {
+      padding: 25px 30px;
+      background: #111;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .catalog-header h2 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .close-catalog-btn {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-catalog-btn:hover {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      transform: rotate(90deg);
+    }
+
+    .catalog-filter-tabs {
+      display: flex;
+      gap: 10px;
+      padding: 20px 30px;
+      background: #151515;
+      border-bottom: 1px solid #282828;
+      overflow-x: auto;
+    }
+
+    .filter-tab {
+      background: #222;
+      color: #ccc;
+      border: 1px solid #333;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .filter-tab.active, .filter-tab:hover {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      border-color: var(--primary-color);
+    }
+
+    .catalog-body {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .auto-item-card {
+      background: #222222;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #333;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .auto-item-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .auto-item-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .auto-item-title {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .auto-item-desc {
+      font-size: 0.88rem;
+      color: #aaa;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .auto-item-specs {
+      background: #181818;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .auto-item-specs i {
+      color: var(--primary-color);
+      margin-right: 5px;
+    }	  
+	  
+    /* ===================================================
+       MEDIA QUERIES (RESPONSIVE)
+    =================================================== */
+    @media (max-width: 992px) {
+      .color-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background-color: #000000;
+        width: 100%;
+        flex-direction: column;
+        padding: 30px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        transition: var(--transition);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-menu li {
+        margin: 15px 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-info">
+        <span><i class="fa-solid fa-phone"></i> 4626269597 </span>
+        <span><a href="https://maps.app.goo.gl/xZ76Jk8VZrcMUP3a6"><i class="fa-solid fa-location-dot"></i></a>  Encuentra tu Sucursal GTO</span>
+      </div>
+      <div class="top-social">
+        <a href="https://www.facebook.com/people/GTO-Pinturas/61578456534843/"><i class="fa-brands fa-facebook-f"></i></a> 
+        <a href="https://www.instagram.com/gtopinturas21/"><i class="fa-brands fa-instagram"></i></a>
+		<a href="https://wa.me/524772463670"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="">
+        <img src="IMAGENES/LOGO.png" alt="GTO Pinturas" width="130" height="40">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" class="active">Inicio</a></li>
+        <li><a href="#lineas">Líneas</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <h1>PROTECCIÓN Y <span>COLOR</span> QUE PERDURA</h1>
+        <p>Soluciones integrales en pintura vinílica, esmaltes e impermeabilizantes para cualquier proyecto o superficie.</p>
+        <div class="hero-buttons">
+          <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="lineas">
+    <div class="container">
+      <h2 class="section-title">Nuestras Líneas</h2>
+      <p class="section-subtitle">Explora nuestra amplia variedad de productos diseñados para cada necesidad</p>
+
+      <div class="categories-grid">
+		 <!-- Tarjeta de Automotriz con función de clic activada -->
+        <div class="category-card" onclick="openCategoryCatalog('automotriz')" title="Haz clic para ver Catálogo Automotriz Completo">
+          <img src="IMAGENES/pexels-lavren-17891003.jpg" alt="AUTOMOTRIZ">
+          <div class="category-overlay">
+			  <h3>Automotriz </h3>
+            <p>Fondos, Base-Color, Transparentes, todo para el cuidado y acabado automotriz.</p>
+          </div>
+        </div> 
+		  
+        <div class="category-card" onclick="openCategoryCatalog('automotriz')" title="Haz clic para ver Catálogo Automotriz Completo">
+          <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Arquitectónica">
+          <div class="category-overlay">
+            <h3>Arquitectónica</h3>
+            <p>Pintura para interiores y exteriores de máxima durabilidad.</p>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <img src="IMAGENES/pexels-alex-dos-santos-305643819-309588101.jpg" alt="Impermeabilizantes">
+          <div class="category-overlay">
+            <h3>Impermeabilizantes</h3>
+            <p>Protección contra la humedad para techos y losas.</p>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80" alt="Industrial y Automotriz">
+          <div class="category-overlay">
+            <h3>Industrial</h3>
+            <p>Esmaltes de alto desempeño y recubrimientos especializados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products section-padding" id="productos">
+    <div class="container">
+      <h2 class="section-title">Productos Destacados</h2>
+      <p class="section-subtitle">Calidad garantizada por los expertos en pintura</p>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <span class="product-badge">Más Vendido</span>
+            <img src="IMAGENES/CATALOGO/SHERWIN/XCLO BODY FILLER.png" alt="GTO Vinil Plus">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">XCLO BODY FILLER </h3>
+            <p class="product-desc"> Es un rellenador ligero a base de resina poliéster. Está formulado especialmente para
+reparaciones de hojalatería en la industria automotriz donde se requiera una mayor capacidad de relleno,
+proporciona una excelente adherencia, fácil y suave de lijar “no sangra” y no deja poro.
+
+COMPLEMENTOS DEL SISTEMA
+Catalizador para Rellenador.</p>
+            <a href="#" class="btn btn-primary" style="text-align:center;">Ver Ficha Técnica</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <span class="product-badge">Garantía 7 Años</span>
+            <img src="IMAGENES/CATALOGO/IPESA/IMPERMEABILIZANTE/IP-SELLATEK.png" alt="GTO Imper Ultra">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">SELLATEK 5 X 1</h3>
+            <p class="product-desc">Es un sellador vinil acrílico de alto rendimiento diseñado para sellar la porosidad de superficies de concreto, yeso, tabla roca y mampostería con excelente adherencia. También puede ser empleado como fortificador de pintura vinílica de bajo desempeño. Se recomienda para su uso en interiores y exteriores.</p>
+            <a href="#" class="btn btn-primary" style="text-align:center;">Ver Ficha Técnica</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img src="IMAGENES/CATALOGO/IPESA/VINILICAS/Gemini_Generated_Image_hjdwjqhjdwjqhjdw.png" alt="GTO Esmalte Brillante">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">VINI+ IPESA</h3>
+            <p class="product-desc">Pintura vinil acrílica mate de excelente calidad resistencia, ideal para espacios interiores y exteriores.</p>
+            <a href="#" class="btn btn-primary" style="text-align:center;">Ver Ficha Técnica</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img src="IMAGENES/CATALOGO/SHERWIN/XCLO BASE COLOR.png" alt="GTO Poly Barniz">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">XCLO BASE COLOR</h3>
+            <p class="product-desc">Es una Base Color Acrílica de alta calidad, desarrollada para el repintado parcial ó total de vehículos. Por su gran facilidad de aplicación, excelente poder cubriente y secado rápido simplifica la labor del pintor.</p>
+            <a href="#" class="btn btn-primary" style="text-align:center;">Ver Ficha Técnica</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+	
+	  <section class="section-padding" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contáctanos y Sucursales</h2>
+      <p class="section-subtitle">Visítanos en cualquiera de nuestras tiendas autorizadas GTO</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 16px; border: 1px solid #eee;">
+          <h3 style="margin-bottom: 15px; color: var(--secondary-color);"><i class="fa-solid fa-store" style="color:var(--primary-color)"></i> Matriz Irapuato </h3>
+          <p style="margin-bottom: 10px; color: #555;"><i class="fa-solid fa-location-dot"></i> Av. Guanajuato #521, Col. Barrio Calzada de Guadalupe, Irapuato, GTO.</p>
+          <p style="margin-bottom: 10px; color: #555;"><i class="fa-solid fa-clock"></i> Lunes a Viernes: 8:30 AM - 2:00 PM y de 3:00 PM - 6.30 PM </p>
+          <p style="margin-bottom: 20px; color: #555;"><i class="fa-solid fa-phone"></i> Tel: 462 62 6 95 97</p>
+          <a href="https://maps.app.goo.gl/xZ76Jk8VZrcMUP3a6" target="_blank" class="btn btn-dark" style="width: 100%; text-align: center;"><i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps</a>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 16px; border: 1px solid #eee;">
+          <h3 style="margin-bottom: 15px; color: var(--secondary-color);"><i class="fa-solid fa-headset" style="color:var(--primary-color)"></i> Asesoría Técnica Solicitada</h3>
+          <form onsubmit="handleFormSubmit(event)" style="display: flex; flex-direction: column; gap: 12px;">
+            <input type="text" placeholder="Tu Nombre" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+            <input type="email" placeholder="Correo Electrónico" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+            <select required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; color: #555;">
+              <option value="">Selecciona Línea de Interés</option>
+              <option value="automotriz">Línea Automotriz</option>
+              <option value="arquitectonica">Línea Arquitectónica</option>
+              <option value="impermeabilizante">Impermeabilizantes</option>
+            </select>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+	
+<footer>
+  <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="brand-logo" style="display:inline-flex; margin-bottom: 15px;">
+        <img src="IMAGENES/LOGO.png" alt="GTO Pinturas" width="130" height="40">
+          </a>
+          <p>Comprometidos con ofrecer la mejor calidad en recubrimientos para el hogar, la industria y el taller.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#">Pinturas Vinílicas</a></li>
+            <li><a href="#">Esmaltes y Anticorrosivos</a></li>
+            <li><a href="#">Impermeabilizantes</a></li>
+            <li><a href="#">Línea Madera</a></li>
+            <li><a href="#">Complementos y Brochas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Distribuidores</a></li>
+            <li><a href="#">Aviso de Privacidad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><i class="fa-solid fa-location-dot"></i> Irapuato, Gto. México</li>
+            <li><i class="fa-solid fa-phone"></i> 462 6269597</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 GTO Pinturas. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Component for Technical Sheets -->
+ 
+	  <div class="catalog-modal-overlay" id="catalogModal">
+    <div class="catalog-modal-container">
+      <div class="catalog-header">
+        <h2><i class="fa-solid fa-car-side"></i> Catálogo Especializado Automotriz GTO</h2>
+        <button class="close-catalog-btn" onclick="closeCatalogModal()" aria-label="Cerrar Catálogo"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="catalog-filter-tabs">
+        <button class="filter-tab active" onclick="filterAutoCatalog('todos', event)">Todos los Productos</button>
+        <button class="filter-tab" onclick="filterAutoCatalog('transparentes', event)">Transparentes y Gloss</button>
+        <button class="filter-tab" onclick="filterAutoCatalog('primers', event)">Fondos y Primers</button>
+        <button class="filter-tab" onclick="filterAutoCatalog('acabados', event)">Base Color / Esmaltes</button>
+      </div>
+
+      <div class="catalog-body" id="autoCatalogBody">
+        <!-- Products populated via JavaScript -->
+      </div>
+    </div>
+  </div>
+	
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const sections = document.querySelectorAll('section[id]');
+
+    // Cambiar la pestaña activa al hacer clic
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Actualizar automáticamente la pestaña activa según la sección visible en pantalla
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
+      
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 120;
+        const sectionId = current.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    function selectColor(hex, name, isDarkText) {
+      const display = document.getElementById('colorCarDisplay');
+      const nameText = document.getElementById('colorNameDisplay');
+      const codeText = document.getElementById('colorCodeDisplay');
+      
+      display.style.backgroundColor = hex;
+      nameText.textContent = name;
+      nameText.style.color = hex === '#E0E1DD' ? '#FBC501' : hex;
+      codeText.textContent = 'Código de Color: ' + hex;
+
+      document.querySelectorAll('.color-swatch').forEach(swatch => {
+        swatch.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+
+    function openModal(title, desc) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDescription').textContent = desc;
+      document.getElementById('techModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('techModal').classList.remove('open');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      openModal('¡Mensaje Enviado!', 'Un asesor técnico de GTO Pinturas se pondrá en contacto contigo a la brevedad.');
+		}
+		
+        // Modal controls
+    function openModal(title, desc) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDescription').textContent = desc;
+      document.getElementById('techModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('techModal').classList.remove('open');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      openModal('¡Mensaje Enviado!', 'Un asesor técnico de GTO Pinturas se pondrá en contacto contigo a la brevedad.');
+    }
+
+    const automotiveProducts = [
+      {
+        id: 1,
+        category: 'transparentes',
+        title: 'Transparente Poliuretano 2K HS',
+        desc: 'Barniz de altísima calidad con alta concentración de sólidos, secado veloz y extraordinario brillo espejo con filtro UV.',
+        specs: 'Proporción 2:1 | Secado al tacto 25 min'
+      },
+      {
+        id: 2,
+        category: 'primers',
+        title: 'Fondo Relleno Poliuretano 2K',
+        desc: 'Primer de alto poder de relleno para corregir imperfecciones y asegurar excelente adherencia entre capas.',
+        specs: 'Fácil lijado en seco o húmedo | Relleno superior'
+      },
+      {
+        id: 3,
+        category: 'acabados',
+        title: 'Base Color Metálica y Perlada GTO',
+        desc: 'Sistema de repintado automotriz de alta cobertura con pigmentos metálicos de tono vivo para acabados de exhibición.',
+        specs: 'Más de 10,000 fórmulas en sistema tintométrico'
+      },
+      {
+        id: 4,
+        category: 'primers',
+        title: 'Primer Epóxico Anticorrosivo',
+        desc: 'Barrera de protección anticorrosiva de nivel industrial para chasis, restauraciones y metal desnudo.',
+        specs: 'Resistencia a niebla salina | Adherencia extrema'
+      },
+      {
+        id: 5,
+        category: 'acabados',
+        title: 'Esmalte Acrílico Automotriz',
+        desc: 'Esmalte monocomponente de rápido secado y fácil nivelación en aplicación con pistola de aire.',
+        specs: 'Secado 15 minutos | Brillo directo'
+      },
+      {
+        id: 6,
+        category: 'transparentes',
+        title: 'Pulimento y Pasta de Pulido Cut-Pro',
+        desc: 'Compuesto pulidor grado profesional para eliminar rayas de lija y lograr acabado deslumbrante en transparentes.',
+        specs: 'Cero silicón | Corte rápido y brillo profundo'
+      }
+    ];
+
+    function renderAutoCatalog(items) {
+      const container = document.getElementById('autoCatalogBody');
+      container.innerHTML = '';
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'auto-item-card';
+        card.innerHTML = `
+          <span class="auto-item-tag"><i class="fa-solid fa-check"></i> ${item.category}</span>
+          <h3 class="auto-item-title">${item.title}</h3>
+          <p class="auto-item-desc">${item.desc}</p>
+          <div class="auto-item-specs"><i class="fa-solid fa-circle-info"></i> ${item.specs}</div>
+          <button class="btn btn-primary" onclick="openModal('${item.title}', '${item.desc}')"><i class="fa-solid fa-file-pdf"></i> Solicitar Ficha Técnica</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function openCategoryCatalog(category) {
+      if (category === 'automotriz') {
+        renderAutoCatalog(automotiveProducts);
+        document.getElementById('catalogModal').classList.add('open');
+      } else {
+        openModal('Catálogo ' + category.toUpperCase(), 'Has seleccionado la línea ' + category + '. Puedes consultar la lista de productos en la sección inferior de Productos Destacados.');
+      }
+    }
+
+    function closeCatalogModal() {
+      document.getElementById('catalogModal').classList.remove('open');
+    }
+
+    function filterAutoCatalog(cat, event) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (cat === 'todos') {
+        renderAutoCatalog(automotiveProducts);
+      } else {
+        const filtered = automotiveProducts.filter(p => p.category === cat);
+        renderAutoCatalog(filtered);
+      }
+    }
+	   </script> 
+<a href="https://wa.me/524772463670" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Contactar por WhatsApp">
+    <span class="whatsapp-tooltip">¿Dudas? Chatea con nosotros</span>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</body>
+</html>
